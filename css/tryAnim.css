@@ -1,0 +1,215 @@
+/* Header */
+
+.header {
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+  /* Плавная анимация изменения цвета фона */
+}
+
+.header.dark {
+  background-color: rgba(0, 0, 0, 0.85);
+  /* Цвет фона с затемнением */
+}
+
+/* Header end */
+
+.trainingFormat__list-item {
+  opacity: 0;
+  -webkit-transform: translateY(20px);
+  transform: translateY(20px);
+  /* Поднимаем элементы на 20px вверх */
+  -webkit-transition: opacity 0.5s ease, -webkit-transform 0.5s ease;
+  transition: opacity 0.5s ease, -webkit-transform 0.5s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease, -webkit-transform 0.5s ease;
+  /* Плавная анимация */
+}
+
+.trainingFormat__list-item.visible {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+  /* Возвращаем элементы на их нормальное положение */
+}
+
+.forWho__card-item {
+  opacity: 0;
+  -webkit-transform: translateX(60px);
+  transform: translateX(60px);
+  /* Поднимаем элементы на 20px вверх */
+  -webkit-transition: opacity 0.5s ease, -webkit-transform 0.5s ease;
+  transition: opacity 0.5s ease, -webkit-transform 0.5s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease, -webkit-transform 0.5s ease;
+  /* Плавная анимация */
+}
+
+.forWho__card-item.visible {
+  opacity: 1;
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  /* Возвращаем элементы на их нормальное положение */
+}
+
+.answers__item-description {
+  display: none;
+  opacity: 0;
+  -webkit-transition: opacity 250ms ease;
+  transition: opacity 250ms ease;
+}
+
+.answers__item-description.show-text {
+  display: block;
+  padding: 10px;
+}
+
+.answers__item-description.anim-text {
+  opacity: 1;
+}
+
+/* Кнопка wave */
+
+.price__button {
+  position: relative;
+  max-width: 250px;
+  background-color: var(--color-red);
+  font-size: 20px;
+  text-align: left;
+  border: none;
+  padding: 15px;
+  color: var(--color-white);
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.price__button:hover {
+  background-color: var(--color-dark-red);
+}
+
+.price__button::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(
+    linear,
+    left top, right top,
+    from(transparent),
+    color-stop(var(--color-red)),
+    to(transparent)
+  );
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-red),
+    transparent
+  );
+  top: 0;
+  left: -100%;
+  -webkit-animation: wave 2s linear infinite;
+  animation: wave 2s linear infinite;
+}
+
+@-webkit-keyframes wave {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes wave {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+/* Кнопка wave end */
+
+.currency-background {
+  position: absolute;
+  /* Позиционирование абсолютно относительно price-section */
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* Ширина на всю ширину price-section */
+  height: 100%;
+  /* Высота на всю высоту price-section */
+  overflow: hidden;
+  z-index: -1;
+}
+
+/* Стили для символов */
+
+.falling-symbol {
+  z-index: -1;
+  top: 0;
+  height: 100%;
+  position: absolute;
+  font-size: 24px;
+  color: #106810;
+  /* Цвет символов $ */
+  left: calc(
+    100% * var(--random-left)
+  );
+  /* Используем CSS переменную для случайного позиционирования */
+  -webkit-animation: fall var(--animation-duration) linear infinite;
+  animation: fall var(--animation-duration) linear infinite;
+}
+
+.falling-symbol.euro {
+  color: #0f3c5a;
+  /* Цвет символов € */
+}
+
+/* Определение анимации падения символов */
+
+@-webkit-keyframes fall {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    /* Начальная позиция над блоком */
+  }
+
+  100% {
+    -webkit-transform: translateY(
+      100%
+    );
+    transform: translateY(
+      100%
+    );
+    /* Конечная позиция на 100px ниже нижней границы блока */
+  }
+}
+
+@keyframes fall {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    /* Начальная позиция над блоком */
+  }
+
+  100% {
+    -webkit-transform: translateY(
+      100%
+    );
+    transform: translateY(
+      100%
+    );
+    /* Конечная позиция на 100px ниже нижней границы блока */
+  }
+}
+
+/* ANSWER SECTION */
